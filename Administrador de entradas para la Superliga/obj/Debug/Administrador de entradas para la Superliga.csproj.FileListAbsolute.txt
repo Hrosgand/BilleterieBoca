@@ -1,0 +1,11 @@
+c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\bin\Debug\Administrador de entradas para la Superliga.exe.config
+c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\bin\Debug\Administrador de entradas para la Superliga.exe
+c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\bin\Debug\Administrador de entradas para la Superliga.pdb
+c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.csprojResolveAssemblyReference.cache
+c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\obj\Debug\Administrador_de_entradas_para_la_Superliga.Connection.resources
+c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\obj\Debug\Administrador_de_entradas_para_la_Superliga.Form1.resources
+c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\obj\Debug\Administrador_de_entradas_para_la_Superliga.Properties.Resources.resources
+c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.csproj.GenerateResource.cache
+c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.csproj.CoreCompileInputs.cache
+c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.exe
+c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.pdb
