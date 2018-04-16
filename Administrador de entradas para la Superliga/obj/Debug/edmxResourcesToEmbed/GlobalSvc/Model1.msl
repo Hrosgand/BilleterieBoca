@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities1">
+    <EntitySetMapping Name="Billet">
+      <EntityTypeMapping TypeName="Model.Billet">
+        <MappingFragment StoreEntitySet="Billet">
+          <ScalarProperty Name="int" ColumnName="int" />
+          <ScalarProperty Name="numSocio" ColumnName="numSocio" />
+          <ScalarProperty Name="idPlace" ColumnName="idPlace" />
+          <ScalarProperty Name="idMatch" ColumnName="idMatch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Match">
+      <EntityTypeMapping TypeName="Model.Match">
+        <MappingFragment StoreEntitySet="Match">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="intitule" ColumnName="intitule" />
+          <ScalarProperty Name="coefMatch" ColumnName="coefMatch" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Places">
+      <EntityTypeMapping TypeName="Model.Places">
+        <MappingFragment StoreEntitySet="Places">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idTribune" ColumnName="idTribune" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Socios">
+      <EntityTypeMapping TypeName="Model.Socios">
+        <MappingFragment StoreEntitySet="Socios">
+          <ScalarProperty Name="numSocio" ColumnName="numSocio" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="adresse" ColumnName="adresse" />
+          <ScalarProperty Name="codePostal" ColumnName="codePostal" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="mdp" ColumnName="mdp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Table">
+      <EntityTypeMapping TypeName="Model.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idTribune" ColumnName="idTribune" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tribunes">
+      <EntityTypeMapping TypeName="Model.Tribunes">
+        <MappingFragment StoreEntitySet="Tribunes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="capacite" ColumnName="capacite" />
+          <ScalarProperty Name="prix" ColumnName="prix" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -16,7 +16,7 @@ namespace Administrador_de_entradas_para_la_Superliga
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Connection());
         }
     }
 }

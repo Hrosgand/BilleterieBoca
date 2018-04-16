@@ -9,3 +9,20 @@ c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Admini
 c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.csproj.CoreCompileInputs.cache
 c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.exe
 c:\users\vdupont\source\repos\Administrador de entradas para la Superliga\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.pdb
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.csprojResolveAssemblyReference.cache
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\obj\Debug\Administrador_de_entradas_para_la_Superliga.Connection.resources
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\obj\Debug\Administrador_de_entradas_para_la_Superliga.Properties.Resources.resources
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.csproj.GenerateResource.cache
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.csproj.CoreCompileInputs.cache
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.exe
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.pdb
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\bin\Debug\Administrador de entradas para la Superliga.exe.config
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\bin\Debug\Administrador de entradas para la Superliga.exe
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\bin\Debug\Administrador de entradas para la Superliga.pdb
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\bin\Debug\EntityFramework.dll
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\bin\Debug\EntityFramework.xml
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\obj\Debug\Administrador de entradas para la Superliga.csproj.CopyComplete
+C:\Users\vdupont\source\repos\BilleterieBoca\Administrador de entradas para la Superliga\obj\Debug\Administrador_de_entradas_para_la_Superliga.Acceuil.resources

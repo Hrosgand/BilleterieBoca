@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Billet">
+          <Key>
+            <PropertyRef Name="int" />
+          </Key>
+          <Property Name="int" Type="int" Nullable="false" />
+          <Property Name="numSocio" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="idPlace" Type="int" Nullable="false" />
+          <Property Name="idMatch" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="intitule" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="coefMatch" Type="float" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Places">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTribune" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Socios">
+          <Key>
+            <PropertyRef Name="numSocio" />
+          </Key>
+          <Property Name="numSocio" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="prenom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adresse" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codePostal" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telephone" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="mdp" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTribune" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tribunes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="capacite" Type="int" Nullable="false" />
+          <Property Name="prix" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Billet__idMatch__239E4DCF">
+          <End Role="Match" Type="Self.Match" Multiplicity="1" />
+          <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Billet">
+              <PropertyRef Name="idMatch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Billet__idPlace__22AA2996">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Billet">
+              <PropertyRef Name="idPlace" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Billet__numSocio__1BFD2C07">
+          <End Role="Socios" Type="Self.Socios" Multiplicity="1" />
+          <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Socios">
+              <PropertyRef Name="numSocio" />
+            </Principal>
+            <Dependent Role="Billet">
+              <PropertyRef Name="numSocio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Places__idTribun__21B6055D">
+          <End Role="Tribunes" Type="Self.Tribunes" Multiplicity="1" />
+          <End Role="Places" Type="Self.Places" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tribunes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Places">
+              <PropertyRef Name="idTribune" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Table__idTribune__1ED998B2">
+          <End Role="Tribunes" Type="Self.Tribunes" Multiplicity="1" />
+          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tribunes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Table">
+              <PropertyRef Name="idTribune" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Billet" EntityType="Self.Billet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Match" EntityType="Self.Match" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Places" EntityType="Self.Places" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Socios" EntityType="Self.Socios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tribunes" EntityType="Self.Tribunes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Billet__idMatch__239E4DCF" Association="Self.FK__Billet__idMatch__239E4DCF">
+            <End Role="Match" EntitySet="Match" />
+            <End Role="Billet" EntitySet="Billet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Billet__idPlace__22AA2996" Association="Self.FK__Billet__idPlace__22AA2996">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="Billet" EntitySet="Billet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Billet__numSocio__1BFD2C07" Association="Self.FK__Billet__numSocio__1BFD2C07">
+            <End Role="Socios" EntitySet="Socios" />
+            <End Role="Billet" EntitySet="Billet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Places__idTribun__21B6055D" Association="Self.FK__Places__idTribun__21B6055D">
+            <End Role="Tribunes" EntitySet="Tribunes" />
+            <End Role="Places" EntitySet="Places" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Table__idTribune__1ED998B2" Association="Self.FK__Table__idTribune__1ED998B2">
+            <End Role="Tribunes" EntitySet="Tribunes" />
+            <End Role="Table" EntitySet="Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Billet">
+          <Key>
+            <PropertyRef Name="int" />
+          </Key>
+          <Property Name="int" Type="Int32" Nullable="false" />
+          <Property Name="numSocio" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idPlace" Type="Int32" Nullable="false" />
+          <Property Name="idMatch" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Match" Relationship="Self.FK__Billet__idMatch__239E4DCF" FromRole="Billet" ToRole="Match" />
+          <NavigationProperty Name="Places" Relationship="Self.FK__Billet__idPlace__22AA2996" FromRole="Billet" ToRole="Places" />
+          <NavigationProperty Name="Socios" Relationship="Self.FK__Billet__numSocio__1BFD2C07" FromRole="Billet" ToRole="Socios" />
+        </EntityType>
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="intitule" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="coefMatch" Type="Double" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Billet" Relationship="Self.FK__Billet__idMatch__239E4DCF" FromRole="Match" ToRole="Billet" />
+        </EntityType>
+        <EntityType Name="Places">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTribune" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Billet" Relationship="Self.FK__Billet__idPlace__22AA2996" FromRole="Places" ToRole="Billet" />
+          <NavigationProperty Name="Tribunes" Relationship="Self.FK__Places__idTribun__21B6055D" FromRole="Places" ToRole="Tribunes" />
+        </EntityType>
+        <EntityType Name="Socios">
+          <Key>
+            <PropertyRef Name="numSocio" />
+          </Key>
+          <Property Name="numSocio" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adresse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codePostal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telephone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mdp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Billet" Relationship="Self.FK__Billet__numSocio__1BFD2C07" FromRole="Socios" ToRole="Billet" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTribune" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tribunes" Relationship="Self.FK__Table__idTribune__1ED998B2" FromRole="Table" ToRole="Tribunes" />
+        </EntityType>
+        <EntityType Name="Tribunes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="capacite" Type="Int32" Nullable="false" />
+          <Property Name="prix" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Places" Relationship="Self.FK__Places__idTribun__21B6055D" FromRole="Tribunes" ToRole="Places" />
+          <NavigationProperty Name="Table" Relationship="Self.FK__Table__idTribune__1ED998B2" FromRole="Tribunes" ToRole="Table" />
+        </EntityType>
+        <Association Name="FK__Billet__idMatch__239E4DCF">
+          <End Role="Match" Type="Self.Match" Multiplicity="1" />
+          <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Billet">
+              <PropertyRef Name="idMatch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Billet__idPlace__22AA2996">
+          <End Role="Places" Type="Self.Places" Multiplicity="1" />
+          <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Places">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Billet">
+              <PropertyRef Name="idPlace" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Billet__numSocio__1BFD2C07">
+          <End Role="Socios" Type="Self.Socios" Multiplicity="1" />
+          <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Socios">
+              <PropertyRef Name="numSocio" />
+            </Principal>
+            <Dependent Role="Billet">
+              <PropertyRef Name="numSocio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Places__idTribun__21B6055D">
+          <End Role="Tribunes" Type="Self.Tribunes" Multiplicity="1" />
+          <End Role="Places" Type="Self.Places" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tribunes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Places">
+              <PropertyRef Name="idTribune" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Table__idTribune__1ED998B2">
+          <End Role="Tribunes" Type="Self.Tribunes" Multiplicity="1" />
+          <End Role="Table" Type="Self.Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tribunes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Table">
+              <PropertyRef Name="idTribune" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Billet" EntityType="Self.Billet" />
+          <EntitySet Name="Match" EntityType="Self.Match" />
+          <EntitySet Name="Places" EntityType="Self.Places" />
+          <EntitySet Name="Socios" EntityType="Self.Socios" />
+          <EntitySet Name="Table" EntityType="Self.Table" />
+          <EntitySet Name="Tribunes" EntityType="Self.Tribunes" />
+          <AssociationSet Name="FK__Billet__idMatch__239E4DCF" Association="Self.FK__Billet__idMatch__239E4DCF">
+            <End Role="Match" EntitySet="Match" />
+            <End Role="Billet" EntitySet="Billet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Billet__idPlace__22AA2996" Association="Self.FK__Billet__idPlace__22AA2996">
+            <End Role="Places" EntitySet="Places" />
+            <End Role="Billet" EntitySet="Billet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Billet__numSocio__1BFD2C07" Association="Self.FK__Billet__numSocio__1BFD2C07">
+            <End Role="Socios" EntitySet="Socios" />
+            <End Role="Billet" EntitySet="Billet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Places__idTribun__21B6055D" Association="Self.FK__Places__idTribun__21B6055D">
+            <End Role="Tribunes" EntitySet="Tribunes" />
+            <End Role="Places" EntitySet="Places" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Table__idTribune__1ED998B2" Association="Self.FK__Table__idTribune__1ED998B2">
+            <End Role="Tribunes" EntitySet="Tribunes" />
+            <End Role="Table" EntitySet="Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities1">
+          <EntitySetMapping Name="Billet">
+            <EntityTypeMapping TypeName="Model.Billet">
+              <MappingFragment StoreEntitySet="Billet">
+                <ScalarProperty Name="int" ColumnName="int" />
+                <ScalarProperty Name="numSocio" ColumnName="numSocio" />
+                <ScalarProperty Name="idPlace" ColumnName="idPlace" />
+                <ScalarProperty Name="idMatch" ColumnName="idMatch" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Match">
+            <EntityTypeMapping TypeName="Model.Match">
+              <MappingFragment StoreEntitySet="Match">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="intitule" ColumnName="intitule" />
+                <ScalarProperty Name="coefMatch" ColumnName="coefMatch" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Places">
+            <EntityTypeMapping TypeName="Model.Places">
+              <MappingFragment StoreEntitySet="Places">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idTribune" ColumnName="idTribune" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Socios">
+            <EntityTypeMapping TypeName="Model.Socios">
+              <MappingFragment StoreEntitySet="Socios">
+                <ScalarProperty Name="numSocio" ColumnName="numSocio" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="codePostal" ColumnName="codePostal" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="mdp" ColumnName="mdp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table">
+            <EntityTypeMapping TypeName="Model.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idTribune" ColumnName="idTribune" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tribunes">
+            <EntityTypeMapping TypeName="Model.Tribunes">
+              <MappingFragment StoreEntitySet="Tribunes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="capacite" ColumnName="capacite" />
+                <ScalarProperty Name="prix" ColumnName="prix" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
