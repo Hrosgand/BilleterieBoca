@@ -96,7 +96,7 @@ namespace Administrador_de_entradas_para_la_Superliga.GlobalSvc
 
         public void achatBillet(int idTribune, int idMatch)
         {
-
+            // Nico
         }
         #endregion
     }
