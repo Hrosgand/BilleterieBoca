@@ -20,10 +20,10 @@ namespace Administrador_de_entradas_para_la_Superliga.GlobalSvc
             this.Billet = new HashSet<Billet>();
         }
     
-        public int Id { get; set; }
+        public int id { get; set; }
         public string intitule { get; set; }
         public double coefMatch { get; set; }
-        public System.DateTime date { get; set; }
+        public System.DateTime dateMatch { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Billet> Billet { get; set; }

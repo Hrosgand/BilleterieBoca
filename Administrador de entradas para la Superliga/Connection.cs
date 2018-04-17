@@ -17,7 +17,8 @@ namespace Administrador_de_entradas_para_la_Superliga
         public Connection()
         {
             InitializeComponent();
-            
+           
+           
         }
 
         private void btnConnection_Click(object sender, EventArgs e)

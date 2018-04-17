@@ -11,12 +11,12 @@
   </EntityType>
   <EntityType Name="Match">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="intitule" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="coefMatch" Type="float" Nullable="false" />
-    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="dateMatch" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Places">
     <Key>
@@ -41,8 +41,8 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idTribune" Type="int" Nullable="false" />
+    <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="idTribune" Nullable="false" Type="int" />
   </EntityType>
   <EntityType Name="Tribunes">
     <Key>
@@ -53,12 +53,12 @@
     <Property Name="capacite" Type="int" Nullable="false" />
     <Property Name="prix" Type="float" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Billet__idMatch__239E4DCF">
+  <Association Name="FK__Billet__idMatch__267ABA7A">
     <End Role="Match" Type="Self.Match" Multiplicity="1" />
     <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Match">
-        <PropertyRef Name="Id" />
+        <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Billet">
         <PropertyRef Name="idMatch" />
@@ -102,8 +102,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Table__idTribune__1ED998B2">
-    <End Role="Tribunes" Type="Self.Tribunes" Multiplicity="1" />
-    <End Role="Table" Type="Self.Table" Multiplicity="*" />
+    <End Type="Self.Tribunes" Multiplicity="1" Role="Tribunes" />
+    <End Type="Self.Table" Multiplicity="*" Role="Table" />
     <ReferentialConstraint>
       <Principal Role="Tribunes">
         <PropertyRef Name="id" />
@@ -120,7 +120,7 @@
     <EntitySet Name="Socios" EntityType="Self.Socios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tribunes" EntityType="Self.Tribunes" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Billet__idMatch__239E4DCF" Association="Self.FK__Billet__idMatch__239E4DCF">
+    <AssociationSet Name="FK__Billet__idMatch__267ABA7A" Association="Self.FK__Billet__idMatch__267ABA7A">
       <End Role="Match" EntitySet="Match" />
       <End Role="Billet" EntitySet="Billet" />
     </AssociationSet>
@@ -137,8 +137,8 @@
       <End Role="Places" EntitySet="Places" />
     </AssociationSet>
     <AssociationSet Name="FK__Table__idTribune__1ED998B2" Association="Self.FK__Table__idTribune__1ED998B2">
-      <End Role="Tribunes" EntitySet="Tribunes" />
-      <End Role="Table" EntitySet="Table" />
+      <End EntitySet="Tribunes" Role="Tribunes" />
+      <End EntitySet="Table" Role="Table" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

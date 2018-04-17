@@ -48,11 +48,55 @@ namespace Administrador_de_entradas_para_la_Superliga.GlobalSvc
             }
 
             return false;
-            /*  var query = from c in getListSocios()
-                 where c.numSocio == numSocio
-                       && c.mdp == mdp
-                 select c;
-             return query.First(); */
+           
+        }
+        #endregion
+
+       
+
+        #region CRUD Places
+
+        public List<Places> getListPlaces()
+        {
+            return entities.Places.ToList();
+        }
+#endregion
+
+        #region CRUD Matchs
+
+        public List<Match> getListMatchs()
+        {
+            return entities.Match.ToList();
+        }
+
+        public List<Match> getListMatchsByIdMatch(int idMatch)
+        {
+            var query = from m in getListMatchs()
+                where m.id == idMatch
+                select m;
+            return query.ToList();
+        }
+        
+
+        #endregion
+
+
+        #region CRUD Tribunes
+
+        public List<Tribunes> getListTribunes()
+        {
+            return entities.Tribunes.ToList();
+        }
+
+        public int placeRestantesByTribunesEtMatch()
+        {
+           // List<Places> lesPlaces  
+            return 1;
+        }
+
+        public void achatBillet(int idTribune, int idMatch)
+        {
+
         }
         #endregion
     }
