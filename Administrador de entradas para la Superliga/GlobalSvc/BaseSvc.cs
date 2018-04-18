@@ -50,6 +50,21 @@ namespace Administrador_de_entradas_para_la_Superliga.GlobalSvc
             return false;
            
         }
+
+        public Socios getSocios(String numSocio)
+        {
+            List<Socios> lS = getListSocios();
+            Socios ss = new Socios();
+            foreach (Socios s in lS)
+            {
+                if (numSocio == s.numSocio)
+                {
+                    return s;
+                }
+            }
+
+            return ss;
+        }
         #endregion
 
        
@@ -94,9 +109,14 @@ namespace Administrador_de_entradas_para_la_Superliga.GlobalSvc
             return 1;
         }
 
-        public void achatBillet(int idTribune, int idMatch)
+        public void achatBillet(int idTribune, int idMatch, string socio)
         {
             // Nico
+            int n = 0;
+            Socios s = getSocios(socio);
+            Places p = new Places(n, idTribune);
+            Billet b = new Billet(n, s.numSocio, p.id, idMatch);
+
         }
         #endregion
     }

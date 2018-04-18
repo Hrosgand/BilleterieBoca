@@ -25,12 +25,12 @@ namespace Administrador_de_entradas_para_la_Superliga
         {
             if (bSvc.getSociosByNumeroEtMdp(txbLogin.Text, txbMdp.Text))
             {
-                Acceuil a = new Acceuil();
+                Acceuil a = new Acceuil(txbLogin.Text);
                 a.Show();
             }
             else
             {
-                MessageBox.Show("Indentifiants incorrects");
+                MessageBox.Show("Identifiants incorrects");
             }
         }
     }

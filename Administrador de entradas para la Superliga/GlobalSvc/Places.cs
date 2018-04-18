@@ -14,12 +14,20 @@ namespace Administrador_de_entradas_para_la_Superliga.GlobalSvc
     
     public partial class Places
     {
+        private int n;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Places()
         {
             this.Billet = new HashSet<Billet>();
         }
-    
+
+        public Places(int n, int idTribune)
+        {
+            this.n = n;
+            this.idTribune = idTribune;
+        }
+
         public int id { get; set; }
         public int idTribune { get; set; }
     

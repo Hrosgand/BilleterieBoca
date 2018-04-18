@@ -14,6 +14,18 @@ namespace Administrador_de_entradas_para_la_Superliga.GlobalSvc
     
     public partial class Billet
     {
+        private int n;
+        private object socio;
+        private int id;
+
+        public Billet(int n, object socio, int id, int idMatch)
+        {
+            this.n = n;
+            this.socio = socio;
+            this.id = id;
+            this.idMatch = idMatch;
+        }
+
         public int @int { get; set; }
         public string numSocio { get; set; }
         public int idPlace { get; set; }

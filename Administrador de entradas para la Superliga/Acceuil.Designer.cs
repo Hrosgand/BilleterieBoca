@@ -30,12 +30,12 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbxTribunes = new System.Windows.Forms.ComboBox();
-            this.cbxMatch = new System.Windows.Forms.ComboBox();
+            this.btnAcheter = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cbxMatch = new System.Windows.Forms.ComboBox();
+            this.cbxTribunes = new System.Windows.Forms.ComboBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -62,19 +62,9 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(790, 425);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnAcheter);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.cbxMatch);
             this.groupBox1.Controls.Add(this.cbxTribunes);
@@ -85,13 +75,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Acheter une place";
             // 
-            // cbxTribunes
+            // btnAcheter
             // 
-            this.cbxTribunes.FormattingEnabled = true;
-            this.cbxTribunes.Location = new System.Drawing.Point(39, 60);
-            this.cbxTribunes.Name = "cbxTribunes";
-            this.cbxTribunes.Size = new System.Drawing.Size(121, 21);
-            this.cbxTribunes.TabIndex = 0;
+            this.btnAcheter.Location = new System.Drawing.Point(57, 117);
+            this.btnAcheter.Name = "btnAcheter";
+            this.btnAcheter.Size = new System.Drawing.Size(75, 23);
+            this.btnAcheter.TabIndex = 3;
+            this.btnAcheter.Text = "Acheter";
+            this.btnAcheter.UseVisualStyleBackColor = true;
+            this.btnAcheter.Click += new System.EventHandler(this.btnAcheter_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(125, 87);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(35, 20);
+            this.textBox1.TabIndex = 2;
             // 
             // cbxMatch
             // 
@@ -101,21 +100,23 @@
             this.cbxMatch.Size = new System.Drawing.Size(121, 21);
             this.cbxMatch.TabIndex = 1;
             // 
-            // textBox1
+            // cbxTribunes
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 87);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(35, 20);
-            this.textBox1.TabIndex = 2;
+            this.cbxTribunes.FormattingEnabled = true;
+            this.cbxTribunes.Location = new System.Drawing.Point(39, 60);
+            this.cbxTribunes.Name = "cbxTribunes";
+            this.cbxTribunes.Size = new System.Drawing.Size(121, 21);
+            this.cbxTribunes.TabIndex = 0;
             // 
-            // button1
+            // tabPage2
             // 
-            this.button1.Location = new System.Drawing.Point(57, 117);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Acheter";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(790, 425);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // Acceuil
             // 
@@ -139,7 +140,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAcheter;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cbxMatch;
         private System.Windows.Forms.ComboBox cbxTribunes;
