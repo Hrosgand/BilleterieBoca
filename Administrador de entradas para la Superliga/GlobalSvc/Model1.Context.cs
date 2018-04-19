@@ -26,10 +26,10 @@ namespace Administrador_de_entradas_para_la_Superliga.GlobalSvc
         }
     
         public virtual DbSet<Match> Match { get; set; }
-        public virtual DbSet<Billet> Billet { get; set; }
         public virtual DbSet<Places> Places { get; set; }
         public virtual DbSet<Socios> Socios { get; set; }
         public virtual DbSet<Table> Table { get; set; }
         public virtual DbSet<Tribunes> Tribunes { get; set; }
+        public virtual DbSet<Billet> Billet { get; set; }
     }
 }

@@ -11,16 +11,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Billet">
-      <EntityTypeMapping TypeName="Model.Billet">
-        <MappingFragment StoreEntitySet="Billet">
-          <ScalarProperty Name="idMatch" ColumnName="idMatch" />
-          <ScalarProperty Name="idPlace" ColumnName="idPlace" />
-          <ScalarProperty Name="numSocio" ColumnName="numSocio" />
-          <ScalarProperty Name="int" ColumnName="int" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Places">
       <EntityTypeMapping TypeName="Model.Places">
         <MappingFragment StoreEntitySet="Places">
@@ -56,6 +46,16 @@
           <ScalarProperty Name="prix" ColumnName="prix" />
           <ScalarProperty Name="capacite" ColumnName="capacite" />
           <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Billet">
+      <EntityTypeMapping TypeName="Model.Billet">
+        <MappingFragment StoreEntitySet="Billet">
+          <ScalarProperty Name="idMatch" ColumnName="idMatch" />
+          <ScalarProperty Name="idPlace" ColumnName="idPlace" />
+          <ScalarProperty Name="numSocio" ColumnName="numSocio" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

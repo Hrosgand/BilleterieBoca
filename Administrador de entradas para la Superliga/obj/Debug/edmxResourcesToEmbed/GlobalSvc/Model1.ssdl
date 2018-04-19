@@ -2,9 +2,9 @@
 <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Billet">
     <Key>
-      <PropertyRef Name="int" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="int" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="numSocio" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="idPlace" Type="int" Nullable="false" />
     <Property Name="idMatch" Type="int" Nullable="false" />
@@ -41,8 +41,8 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
-    <Property Name="idTribune" Nullable="false" Type="int" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idTribune" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Tribunes">
     <Key>
@@ -53,7 +53,7 @@
     <Property Name="capacite" Type="int" Nullable="false" />
     <Property Name="prix" Type="float" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Billet__idMatch__267ABA7A">
+  <Association Name="FK__Billet__idMatch__2B3F6F97">
     <End Role="Match" Type="Self.Match" Multiplicity="1" />
     <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
     <ReferentialConstraint>
@@ -65,7 +65,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Billet__idPlace__22AA2996">
+  <Association Name="FK__Billet__idPlace__2A4B4B5E">
     <End Role="Places" Type="Self.Places" Multiplicity="1" />
     <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
     <ReferentialConstraint>
@@ -77,7 +77,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Billet__numSocio__1BFD2C07">
+  <Association Name="FK__Billet__numSocio__29572725">
     <End Role="Socios" Type="Self.Socios" Multiplicity="1" />
     <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
     <ReferentialConstraint>
@@ -102,8 +102,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Table__idTribune__1ED998B2">
-    <End Type="Self.Tribunes" Multiplicity="1" Role="Tribunes" />
-    <End Type="Self.Table" Multiplicity="*" Role="Table" />
+    <End Role="Tribunes" Type="Self.Tribunes" Multiplicity="1" />
+    <End Role="Table" Type="Self.Table" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Tribunes">
         <PropertyRef Name="id" />
@@ -120,15 +120,15 @@
     <EntitySet Name="Socios" EntityType="Self.Socios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tribunes" EntityType="Self.Tribunes" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Billet__idMatch__267ABA7A" Association="Self.FK__Billet__idMatch__267ABA7A">
+    <AssociationSet Name="FK__Billet__idMatch__2B3F6F97" Association="Self.FK__Billet__idMatch__2B3F6F97">
       <End Role="Match" EntitySet="Match" />
       <End Role="Billet" EntitySet="Billet" />
     </AssociationSet>
-    <AssociationSet Name="FK__Billet__idPlace__22AA2996" Association="Self.FK__Billet__idPlace__22AA2996">
+    <AssociationSet Name="FK__Billet__idPlace__2A4B4B5E" Association="Self.FK__Billet__idPlace__2A4B4B5E">
       <End Role="Places" EntitySet="Places" />
       <End Role="Billet" EntitySet="Billet" />
     </AssociationSet>
-    <AssociationSet Name="FK__Billet__numSocio__1BFD2C07" Association="Self.FK__Billet__numSocio__1BFD2C07">
+    <AssociationSet Name="FK__Billet__numSocio__29572725" Association="Self.FK__Billet__numSocio__29572725">
       <End Role="Socios" EntitySet="Socios" />
       <End Role="Billet" EntitySet="Billet" />
     </AssociationSet>
@@ -137,8 +137,8 @@
       <End Role="Places" EntitySet="Places" />
     </AssociationSet>
     <AssociationSet Name="FK__Table__idTribune__1ED998B2" Association="Self.FK__Table__idTribune__1ED998B2">
-      <End EntitySet="Tribunes" Role="Tribunes" />
-      <End EntitySet="Table" Role="Table" />
+      <End Role="Tribunes" EntitySet="Tribunes" />
+      <End Role="Table" EntitySet="Table" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -34,7 +34,18 @@ namespace Administrador_de_entradas_para_la_Superliga
 
         private void btnAcheter_Click(object sender, EventArgs e)
         {
-            bS.achatBillet(Convert.ToInt32(cbxTribunes.Text), Convert.ToInt32(cbxMatch.Text), idSocio);
+            bS.achatBillet(cbxTribunes.Text,cbxMatch.Text, idSocio);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxTribunes_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lblNbPlaces.Text = bS.getTribunesWithNom(cbxTribunes.Text).capacite.ToString();
+            lblTotalPrix.Text = bS.calculPrix(cbxTribunes.Text, cbxMatch.Text).ToString() + ' $';
         }
     }
 }

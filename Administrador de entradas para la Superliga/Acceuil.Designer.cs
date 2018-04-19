@@ -28,17 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Acceuil));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAcheter = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.cbxMatch = new System.Windows.Forms.ComboBox();
             this.cbxTribunes = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblNbPlaces = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTotalPrix = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -53,6 +60,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -64,33 +73,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnAcheter);
-            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.cbxMatch);
-            this.groupBox1.Controls.Add(this.cbxTribunes);
             this.groupBox1.Location = new System.Drawing.Point(8, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 146);
+            this.groupBox1.Size = new System.Drawing.Size(200, 70);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Acheter une place";
-            // 
-            // btnAcheter
-            // 
-            this.btnAcheter.Location = new System.Drawing.Point(57, 117);
-            this.btnAcheter.Name = "btnAcheter";
-            this.btnAcheter.Size = new System.Drawing.Size(75, 23);
-            this.btnAcheter.TabIndex = 3;
-            this.btnAcheter.Text = "Acheter";
-            this.btnAcheter.UseVisualStyleBackColor = true;
-            this.btnAcheter.Click += new System.EventHandler(this.btnAcheter_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(125, 87);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(35, 20);
-            this.textBox1.TabIndex = 2;
+            this.groupBox1.Text = "Choisir un match";
             // 
             // cbxMatch
             // 
@@ -103,10 +92,11 @@
             // cbxTribunes
             // 
             this.cbxTribunes.FormattingEnabled = true;
-            this.cbxTribunes.Location = new System.Drawing.Point(39, 60);
+            this.cbxTribunes.Location = new System.Drawing.Point(39, 29);
             this.cbxTribunes.Name = "cbxTribunes";
             this.cbxTribunes.Size = new System.Drawing.Size(121, 21);
             this.cbxTribunes.TabIndex = 0;
+            this.cbxTribunes.SelectedValueChanged += new System.EventHandler(this.cbxTribunes_SelectedValueChanged);
             // 
             // tabPage2
             // 
@@ -117,6 +107,67 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(214, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(576, 413);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblTotalPrix);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.lblNbPlaces);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.cbxTribunes);
+            this.groupBox2.Location = new System.Drawing.Point(8, 91);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 129);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Infos tribunes";
+            // 
+            // lblNbPlaces
+            // 
+            this.lblNbPlaces.AutoSize = true;
+            this.lblNbPlaces.Location = new System.Drawing.Point(142, 75);
+            this.lblNbPlaces.Name = "lblNbPlaces";
+            this.lblNbPlaces.Size = new System.Drawing.Size(13, 13);
+            this.lblNbPlaces.TabIndex = 4;
+            this.lblNbPlaces.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 75);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Nombre de places :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 102);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Prix :";
+            // 
+            // lblTotalPrix
+            // 
+            this.lblTotalPrix.AutoSize = true;
+            this.lblTotalPrix.Location = new System.Drawing.Point(136, 102);
+            this.lblTotalPrix.Name = "lblTotalPrix";
+            this.lblTotalPrix.Size = new System.Drawing.Size(19, 13);
+            this.lblTotalPrix.TabIndex = 7;
+            this.lblTotalPrix.Text = "0$";
             // 
             // Acceuil
             // 
@@ -129,7 +180,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -140,10 +193,14 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnAcheter;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cbxMatch;
         private System.Windows.Forms.ComboBox cbxTribunes;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblTotalPrix;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNbPlaces;
+        private System.Windows.Forms.Label label2;
     }
 }
 

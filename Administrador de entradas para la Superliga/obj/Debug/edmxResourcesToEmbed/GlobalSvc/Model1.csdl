@@ -2,23 +2,10 @@
 <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Match" EntityType="Model.Match" />
-    <EntitySet Name="Billet" EntityType="Model.Billet" />
     <EntitySet Name="Places" EntityType="Model.Places" />
     <EntitySet Name="Socios" EntityType="Model.Socios" />
     <EntitySet Name="Table" EntityType="Model.Table" />
     <EntitySet Name="Tribunes" EntityType="Model.Tribunes" />
-    <AssociationSet Name="FK__Billet__idMatch__267ABA7A" Association="Model.FK__Billet__idMatch__267ABA7A">
-      <End Role="Match" EntitySet="Match" />
-      <End Role="Billet" EntitySet="Billet" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Billet__idPlace__22AA2996" Association="Model.FK__Billet__idPlace__22AA2996">
-      <End Role="Places" EntitySet="Places" />
-      <End Role="Billet" EntitySet="Billet" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Billet__numSocio__1BFD2C07" Association="Model.FK__Billet__numSocio__1BFD2C07">
-      <End Role="Socios" EntitySet="Socios" />
-      <End Role="Billet" EntitySet="Billet" />
-    </AssociationSet>
     <AssociationSet Name="FK__Places__idTribun__21B6055D" Association="Model.FK__Places__idTribun__21B6055D">
       <End Role="Tribunes" EntitySet="Tribunes" />
       <End Role="Places" EntitySet="Places" />
@@ -26,6 +13,19 @@
     <AssociationSet Name="FK__Table__idTribune__1ED998B2" Association="Model.FK__Table__idTribune__1ED998B2">
       <End EntitySet="Tribunes" Role="Tribunes" />
       <End EntitySet="Table" Role="Table" />
+    </AssociationSet>
+    <EntitySet Name="Billet" EntityType="Model.Billet" />
+    <AssociationSet Name="FK__Billet__idMatch__2B3F6F97" Association="Model.FK__Billet__idMatch__2B3F6F97">
+      <End Role="Match" EntitySet="Match" />
+      <End Role="Billet" EntitySet="Billet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Billet__idPlace__2A4B4B5E" Association="Model.FK__Billet__idPlace__2A4B4B5E">
+      <End Role="Places" EntitySet="Places" />
+      <End Role="Billet" EntitySet="Billet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Billet__numSocio__29572725" Association="Model.FK__Billet__numSocio__29572725">
+      <End Role="Socios" EntitySet="Socios" />
+      <End Role="Billet" EntitySet="Billet" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Match">
@@ -36,19 +36,7 @@
     <Property Name="intitule" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="coefMatch" Type="Double" Nullable="false" />
     <Property Name="dateMatch" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Billet" Relationship="Model.FK__Billet__idMatch__267ABA7A" FromRole="Match" ToRole="Billet" />
-  </EntityType>
-  <EntityType Name="Billet">
-    <Key>
-      <PropertyRef Name="int" />
-    </Key>
-    <Property Name="int" Type="Int32" Nullable="false" />
-    <Property Name="numSocio" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="idPlace" Type="Int32" Nullable="false" />
-    <Property Name="idMatch" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Match" Relationship="Model.FK__Billet__idMatch__267ABA7A" FromRole="Billet" ToRole="Match" />
-    <NavigationProperty Name="Places" Relationship="Model.FK__Billet__idPlace__22AA2996" FromRole="Billet" ToRole="Places" />
-    <NavigationProperty Name="Socios" Relationship="Model.FK__Billet__numSocio__1BFD2C07" FromRole="Billet" ToRole="Socios" />
+    <NavigationProperty Name="Billet" Relationship="Model.FK__Billet__idMatch__2B3F6F97" FromRole="Match" ToRole="Billet" />
   </EntityType>
   <EntityType Name="Places">
     <Key>
@@ -56,8 +44,8 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idTribune" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Billet" Relationship="Model.FK__Billet__idPlace__22AA2996" FromRole="Places" ToRole="Billet" />
     <NavigationProperty Name="Tribunes" Relationship="Model.FK__Places__idTribun__21B6055D" FromRole="Places" ToRole="Tribunes" />
+    <NavigationProperty Name="Billet" Relationship="Model.FK__Billet__idPlace__2A4B4B5E" FromRole="Places" ToRole="Billet" />
   </EntityType>
   <EntityType Name="Socios">
     <Key>
@@ -70,7 +58,7 @@
     <Property Name="codePostal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="telephone" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="mdp" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Billet" Relationship="Model.FK__Billet__numSocio__1BFD2C07" FromRole="Socios" ToRole="Billet" />
+    <NavigationProperty Name="Billet" Relationship="Model.FK__Billet__numSocio__29572725" FromRole="Socios" ToRole="Billet" />
   </EntityType>
   <EntityType Name="Table">
     <Key>
@@ -91,42 +79,6 @@
     <NavigationProperty Name="Places" Relationship="Model.FK__Places__idTribun__21B6055D" FromRole="Tribunes" ToRole="Places" />
     <NavigationProperty Name="Table" Relationship="Model.FK__Table__idTribune__1ED998B2" FromRole="Tribunes" ToRole="Table" />
   </EntityType>
-  <Association Name="FK__Billet__idMatch__267ABA7A">
-    <End Type="Model.Match" Role="Match" Multiplicity="1" />
-    <End Type="Model.Billet" Role="Billet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Match">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Billet">
-        <PropertyRef Name="idMatch" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Billet__idPlace__22AA2996">
-    <End Type="Model.Places" Role="Places" Multiplicity="1" />
-    <End Type="Model.Billet" Role="Billet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Places">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Billet">
-        <PropertyRef Name="idPlace" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Billet__numSocio__1BFD2C07">
-    <End Type="Model.Socios" Role="Socios" Multiplicity="1" />
-    <End Type="Model.Billet" Role="Billet" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Socios">
-        <PropertyRef Name="numSocio" />
-      </Principal>
-      <Dependent Role="Billet">
-        <PropertyRef Name="numSocio" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Places__idTribun__21B6055D">
     <End Type="Model.Tribunes" Role="Tribunes" Multiplicity="1" />
     <End Type="Model.Places" Role="Places" Multiplicity="*" />
@@ -148,6 +100,54 @@
       </Principal>
       <Dependent Role="Table">
         <PropertyRef Name="idTribune" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Billet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numSocio" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="idPlace" Type="Int32" Nullable="false" />
+    <Property Name="idMatch" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Match" Relationship="Model.FK__Billet__idMatch__2B3F6F97" FromRole="Billet" ToRole="Match" />
+    <NavigationProperty Name="Places" Relationship="Model.FK__Billet__idPlace__2A4B4B5E" FromRole="Billet" ToRole="Places" />
+    <NavigationProperty Name="Socios" Relationship="Model.FK__Billet__numSocio__29572725" FromRole="Billet" ToRole="Socios" />
+  </EntityType>
+  <Association Name="FK__Billet__idMatch__2B3F6F97">
+    <End Type="Model.Match" Role="Match" Multiplicity="1" />
+    <End Type="Model.Billet" Role="Billet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Match">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Billet">
+        <PropertyRef Name="idMatch" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Billet__idPlace__2A4B4B5E">
+    <End Type="Model.Places" Role="Places" Multiplicity="1" />
+    <End Type="Model.Billet" Role="Billet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Places">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Billet">
+        <PropertyRef Name="idPlace" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Billet__numSocio__29572725">
+    <End Type="Model.Socios" Role="Socios" Multiplicity="1" />
+    <End Type="Model.Billet" Role="Billet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Socios">
+        <PropertyRef Name="numSocio" />
+      </Principal>
+      <Dependent Role="Billet">
+        <PropertyRef Name="numSocio" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

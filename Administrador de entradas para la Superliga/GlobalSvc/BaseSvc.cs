@@ -4,7 +4,7 @@ using System.Data.Entity.Core;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 namespace Administrador_de_entradas_para_la_Superliga.GlobalSvc
 {
     class BaseSvc
@@ -79,6 +79,12 @@ namespace Administrador_de_entradas_para_la_Superliga.GlobalSvc
 
         #region CRUD Matchs
 
+        public void createBillet(Billet b)
+        {
+            entities.Billet.Add(b);
+            entities.SaveChanges();
+        }
+
         public List<Match> getListMatchs()
         {
             return entities.Match.ToList();
@@ -91,6 +97,11 @@ namespace Administrador_de_entradas_para_la_Superliga.GlobalSvc
                 select m;
             return query.ToList();
         }
+
+        public Match getMatchWithNom(String nomMatch)
+        {
+            return entities.Match.FirstOrDefault(bt => bt.intitule == nomMatch);
+        }
         
 
         #endregion
@@ -102,6 +113,10 @@ namespace Administrador_de_entradas_para_la_Superliga.GlobalSvc
         {
             return entities.Tribunes.ToList();
         }
+        public Tribunes getTribunesWithNom(String nomTribunes)
+        {
+            return entities.Tribunes.FirstOrDefault(bt => bt.nom == nomTribunes);
+        }
 
         public int placeRestantesByTribunesEtMatch()
         {
@@ -109,14 +124,17 @@ namespace Administrador_de_entradas_para_la_Superliga.GlobalSvc
             return 1;
         }
 
-        public void achatBillet(int idTribune, int idMatch, string socio)
+        public void achatBillet(String nomTribunes, String nomMatch, String socio)
         {
-            // Nico
-            int n = 0;
-            Socios s = getSocios(socio);
-            Places p = new Places(n, idTribune);
-            Billet b = new Billet(n, s.numSocio, p.id, idMatch);
+            // Recuperation des id
+            
+        
+            MessageBox.Show("ISSOU");
+        }
 
+        public double calculPrix(String nomTribune, String nomMatch)
+        {
+            return getTribunesWithNom(nomTribune).prix * getMatchWithNom(nomMatch).coefMatch;
         }
         #endregion
     }

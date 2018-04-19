@@ -6,16 +6,16 @@
     <edmx:Diagrams>
       <Diagram DiagramId="a56a2cf92b92468b967fc909dd01a172" Name="Diagram1" >
         <EntityTypeShape EntityType="Model.Match" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Model.Billet" Width="1.5" PointX="7.875" PointY="1.875" />
         <EntityTypeShape EntityType="Model.Places" Width="1.5" PointX="5.625" PointY="3.75" />
         <EntityTypeShape EntityType="Model.Socios" Width="1.5" PointX="5.625" PointY="6.875" />
         <EntityTypeShape EntityType="Model.Table" PointX="5.375" PointY="0.75" Width="1.5" />
         <EntityTypeShape EntityType="Model.Tribunes" Width="1.5" PointX="3.125" PointY="4.125" />
-        <AssociationConnector Association="Model.FK__Billet__idMatch__267ABA7A" />
-        <AssociationConnector Association="Model.FK__Billet__idPlace__22AA2996" />
-        <AssociationConnector Association="Model.FK__Billet__numSocio__1BFD2C07" />
         <AssociationConnector Association="Model.FK__Places__idTribun__21B6055D" />
         <AssociationConnector Association="Model.FK__Table__idTribune__1ED998B2" />
+        <EntityTypeShape EntityType="Model.Billet" Width="1.5" PointX="7.875" PointY="3.875" />
+        <AssociationConnector Association="Model.FK__Billet__idMatch__2B3F6F97" />
+        <AssociationConnector Association="Model.FK__Billet__idPlace__2A4B4B5E" />
+        <AssociationConnector Association="Model.FK__Billet__numSocio__29572725" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
